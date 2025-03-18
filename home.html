@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our System</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <div class="background">
+        
+        <div class="site-name"><h1 > X MEDIA COM </h1> </div>
+    
+        <div class="content">
+            <h2>Welcome to Our Platform</h2>
+            <h3>Your journey to learning starts here. Amazing opportunities and content await.</h3>
+   
+            <div id="check-login">
+                <p>Already have an account?</p>
+                <button id="login-btn">Login</button>
+
+                <p>Don't have an account?</p>
+                <button id="register-btn">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var userLoggedIn = false; 
+
+        document.getElementById('login-btn').addEventListener('click', function() {
+            if (userLoggedIn) {
+                window.location.href = 'login.php';  
+            } else {
+                window.location.href = 'login.php';  
+            }
+        });
+
+        document.getElementById('register-btn').addEventListener('click', function() {
+    console.log("Register button clicked");
+    window.location.href = 'register.php';
+});
+    </script>
+
+    <footer>
+        <p>&copy; 2025 X Media Com. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

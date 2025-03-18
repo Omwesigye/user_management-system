@@ -1,0 +1,92 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('bg.jpg'); /* Add your own background image here */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Container for the Form */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Heading Styles */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ECF0F1;
+}
+
+label {
+    font-size: 1rem;
+    color: #BDC3C7;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Input Styles */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 12px 25px;
+    }
+}

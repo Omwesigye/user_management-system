@@ -1,0 +1,118 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Background Section */
+.background {
+    background-image: url('bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.site-name {
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%); 
+    color:blue;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 10px 0;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    background-color: lightblue;
+}
+
+
+
+
+.content {
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding:100px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 650px;
+    width: 80%;
+    margin-top: 60px;
+    min-height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ECF0F1;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #BDC3C7;
+}
+
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Buttons */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#check-login {
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px 25px;
+    }
+}
