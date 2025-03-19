@@ -4,13 +4,13 @@ require_once 'profile.php';
 
 // Ensure the user is logged in before proceeding
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirect to login page if not logged in
+    header("Location: login.php"); 
     exit();
 }
 
-$user_id = $_SESSION['user_id']; // Get logged-in user's ID
+$user_id = $_SESSION['user_id'];
 
-// Fetch user details
+
 $sql = "SELECT * FROM users WHERE id = :user_id";
 $stmt = $conn->prepare($sql);
 $stmt->execute([':user_id' => $user_id]);
@@ -19,13 +19,13 @@ $user = $stmt->fetch();
 // Handle account deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
     try {
-        $conn->beginTransaction(); // Start transaction
+        $conn->beginTransaction(); 
 
-        // Delete profile picture if it's not the default one
+        
         if (!empty($user['profile_picture']) && $user['profile_picture'] !== 'default.png') {
             $profile_picture_path = 'uploads/' . $user['profile_picture'];
             if (file_exists($profile_picture_path)) {
-                unlink($profile_picture_path); // Delete file
+                unlink($profile_picture_path); 
             }
         }
 
@@ -34,15 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
         $stmt = $conn->prepare($sql);
         $stmt->execute([':user_id' => $user_id]);
 
-        $conn->commit(); // Commit transaction
+        $conn->commit(); 
 
-        // Destroy session and redirect
+        
         session_destroy();
         header("Location: home.html");
         exit();
     } catch (Exception $e) {
-        $conn->rollBack(); // Rollback transaction if an error occurs
-        echo "❌ Error: Could not delete account. " . $e->getMessage();
+        $conn->rollBack(); 
+        echo " Error: Could not delete account. " . $e->getMessage();
     }
 }
 ?>

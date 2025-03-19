@@ -6,17 +6,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$host = "localhost";  
-$username = "root";     
-$password = "";         
-$dbname = "user_management"; 
+require 'db.php'; 
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("❌ Connection failed: " . $e->getMessage());
-}
 
 // Get the current user's details
 $sql = "SELECT username, email, profile_picture, created_at FROM users WHERE id = :user_id";
@@ -31,7 +22,7 @@ if ($user) {
     $created_at = $user['created_at'];
 
 } else {
-    die("❌ User not found.");
+    die(" User not found.");
 }
 
 // Handle profile update
@@ -53,11 +44,11 @@ if (isset($_POST['update_details'])) {
             $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
             
             if ($_FILES['profile_picture']['size'] > 5 * 1024 * 1024) {
-                die("❌ File size must be less than 5MB.");
+                die(" File size must be less than 5MB.");
             }
             
             if (!in_array(strtolower($file_ext), $allowed_exts)) {
-                die("❌ Invalid file type.");
+                die(" Invalid file type.");
             }
             
             $new_profile_picture = uniqid() . "." . $file_ext;

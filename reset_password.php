@@ -4,15 +4,15 @@ require 'db.php';
 
 
 if (!isset($_SESSION['verified_email'])) {
-    die("❌ Unauthorized access!");
+    die(" Unauthorized access!");
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_SESSION['verified_email'];  // Get the verified email from the session
    
-    $newPassword = trim($_POST['password']); // New password entered by the user
-    $confirmPassword = trim($_POST['confirm_password']);// Confirm password entered by the user
+    $newPassword = trim($_POST['password']); 
+    $confirmPassword = trim($_POST['confirm_password']);
 
     // Check if the new password and confirm password match
     if ($newPassword !== $confirmPassword) {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // Hash the new password
+    
     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // If the reset code matches, update the password and clear the reset code
@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
         unset($_SESSION['verified_email']);
-        header("Location: home.html"); // Redirect to verification page
+        header("Location: home.html"); 
             exit;
-        echo "✅ Password reset successfully!";
+        echo "Password reset successfully!";
         exit();
    
 }

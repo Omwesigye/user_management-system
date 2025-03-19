@@ -27,7 +27,7 @@ function sendPasswordResetCode($email) {
     $result = $fetchStmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result && $result['reset_code'] == $resetCode) {
-        $resetCode = $result['reset_code']; /// Get the stored reset code
+        $resetCode = $result['reset_code']; 
 
         // Use PHPMailer to send the reset code
         $mail = new PHPMailer(true);
@@ -51,9 +51,9 @@ function sendPasswordResetCode($email) {
                            <p>Your password reset code is: <strong>$resetCode</strong></p>";
 
             $mail->send();
-            return "✅ Reset code sent successfully to $email";
+            return " Reset code sent successfully to $email";
         } catch (Exception $e) {
-            return "❌ Failed to send email. Error: {$mail->ErrorInfo}";
+            return " Failed to send email. Error: {$mail->ErrorInfo}";
         }
     } else {
         return "No user found with that email.";
@@ -62,12 +62,12 @@ function sendPasswordResetCode($email) {
 
 // Handle POST request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if email is sent via POST
+
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
         echo sendPasswordResetCode($email);
     } else {
-        echo "❌ No email provided.";
+        echo " No email provided.";
     }
 }
 ?>

@@ -3,12 +3,12 @@ session_start();
 require 'db.php';
 
 if (!isset($_SESSION['verified_email'])) {
-    die("❌ Unauthorized access!");
+    die(" Unauthorized access!");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_SESSION['verified_email'];  // Get the verified email from the session
-    $submittedResetCode = trim($_POST['reset_code']); // Get the submitted reset code
+    $submittedResetCode = trim($_POST['reset_code']); 
 
     // Fetch the stored reset code for the email
     $stmt = $conn->prepare("SELECT reset_code FROM users WHERE email = :email");
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <style>
-        /* General Styles */
+        
 * {
     margin: 0;
     padding: 0;
@@ -83,7 +83,7 @@ label {
     color: #BDC3C7;
 }
 
-/* Input Field */
+
 input[type="text"] {
     width: 100%;
     padding: 12px;
@@ -93,7 +93,7 @@ input[type="text"] {
     font-size: 1rem;
 }
 
-/* Submit Button */
+
 button {
     background-color: #3498db;
     color: white;
@@ -110,7 +110,7 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .content {
         width: 90%;

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
   $_SESSION['verified_email'] = $email;
 
-            header("Location:reset.php"); // Redirect to verification page
+            header("Location:reset.php"); 
             exit;
         } else {
             // Handle the case when the email is not found
@@ -31,11 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="forgot_password.css"> <!-- Ensure to link the CSS file -->
+    <link rel="stylesheet" href="forgot_password.css"> 
 </head>
 <body>
 
-    <!-- Content Section -->
+
     <div class="content">
         <h2>Forgot Password</h2>
         <form action="forgot_password.php" method="POST">
