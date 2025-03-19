@@ -29,15 +29,15 @@ function sendPasswordResetCode($email) {
     if ($result && $result['reset_code'] == $resetCode) {
         $resetCode = $result['reset_code']; 
 
-        // Use PHPMailer to send the reset code
+        
         $mail = new PHPMailer(true);
     
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';  // Gmail SMTP server
+            $mail->Host = 'smtp.gmail.com';  
             $mail->SMTPAuth = true;
-            $mail->Username = 'omwesigyeseezi5@gmail.com'; // Your Gmail email
-            $mail->Password = 'ubff mkuu shpa tkyw'; // Use an app password, NOT your real password
+            $mail->Username = 'omwesigyeseezi5@gmail.com'; 
+            $mail->Password = 'ubff mkuu shpa tkyw'; 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
@@ -46,7 +46,7 @@ function sendPasswordResetCode($email) {
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Code';
 
-            // Send the reset code in the email
+            
             $mail->Body = "<h3>Password Reset Code</h3>
                            <p>Your password reset code is: <strong>$resetCode</strong></p>";
 
