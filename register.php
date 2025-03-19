@@ -15,11 +15,11 @@ if (isset($_POST['save_contact'])) {
         $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
 
         if ($_FILES['profile_picture']['size'] > 5 * 1024 * 1024) {
-            die("❌ File size must be less than 5MB.");
+            die(" File size must be less than 5MB.");
         }
 
         if (!in_array(strtolower($file_ext), $allowed_exts)) {
-            die("❌ Invalid file type.");
+            die(" Invalid file type.");
         }
 
         $profile_picture = uniqid() . "." . $file_ext;
@@ -37,7 +37,7 @@ if (isset($_POST['save_contact'])) {
     ]);
     header("Location: login.php");
     exit;
-    echo "✅ Contact saved successfully!";
+    echo " Contact saved successfully!";
 }
 ?>
 

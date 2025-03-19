@@ -2,17 +2,7 @@
 session_start();
 
 // Database connection
-$host = "localhost";  
-$username = "root";     
-$password = "";         
-$dbname = "user_management"; 
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("❌ Connection failed: " . $e->getMessage());
-}
+require 'db.php'; 
 
 if (isset($_SESSION['user_id'])) {
     header("Location: profile.php");
